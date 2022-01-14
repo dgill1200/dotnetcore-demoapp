@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DotNetCoreSqlDb.Models.Todo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>My Tasks</h1>
+<br/>
+<h5 style="text-align: center;">Jot down Ideas, comments or things you are working on to stay organized.</h5>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <div class="description">@Html.DisplayNameFor(model => model.Description)</div>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<!--<script src="/js/elastic-apm-rum.umd.min.js" crossorigin></script>
+<script>
+  elasticApm.init({
+    serviceName: 'DemoDotNetApp',
+    serverUrl: '',
+  })
+</script>-->
