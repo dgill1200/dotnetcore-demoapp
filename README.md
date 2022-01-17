@@ -15,6 +15,11 @@ products:
 This is a sample application that you can use to follow along with the tutorial at 
 [Build a .NET Core and SQL Database web app in Azure Web Apps for Containers](https://docs.microsoft.com/azure/app-service/containers/tutorial-dotnetcore-sqldb-app). 
 
+
+## RDS Connectivity
+
+To enable the dotnetcore application to talk to the RDS SQL Database we need to ensure connectivity is allowed on the outbound rules in AWS. Secondly, we need to configure the startup.cs and appsettings.json file to reflect the endpoint, port, databasename, username and password for the RDS database.
+
 ## License
 
 See [LICENSE](LICENSE.md).
