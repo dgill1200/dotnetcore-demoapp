@@ -21,7 +21,7 @@ namespace DotNetCoreSqlDb.Controllers
         // GET: Todos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Todo.ToListAsync());
+            return View(await _context.Todos.ToListAsync());
         }
 
         // GET: Todos/Details/5
@@ -32,7 +32,7 @@ namespace DotNetCoreSqlDb.Controllers
                 return NotFound();
             }
 
-            var todo = await _context.Todo
+            var todo = await _context.Todos
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (todo == null)
             {
@@ -72,7 +72,7 @@ namespace DotNetCoreSqlDb.Controllers
                 return NotFound();
             }
 
-            var todo = await _context.Todo.FindAsync(id);
+            var todo = await _context.Todos.FindAsync(id);
             if (todo == null)
             {
                 return NotFound();
@@ -123,7 +123,7 @@ namespace DotNetCoreSqlDb.Controllers
                 return NotFound();
             }
 
-            var todo = await _context.Todo
+            var todo = await _context.Todos
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (todo == null)
             {
@@ -138,15 +138,15 @@ namespace DotNetCoreSqlDb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var todo = await _context.Todo.FindAsync(id);
-            _context.Todo.Remove(todo);
+            var todo = await _context.Todos.FindAsync(id);
+            _context.Todos.Remove(todo);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool TodoExists(int id)
         {
-            return _context.Todo.Any(e => e.ID == id);
+            return _context.Todos.Any(e => e.ID == id);
         }
     }
 }
