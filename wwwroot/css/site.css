@@ -45,11 +45,6 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
-.description {
-    color: red;
-    font-size: 20px;
-    text-align: center;
-}
 .footer {
   position: absolute;
   bottom: 0;
